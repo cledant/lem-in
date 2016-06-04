@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 17:22:09 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/04 17:59:11 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/04 19:53:27 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ t_graph		*ft_graph_new(size_t size)
 {
 	t_graph		*new;
 	t_graph		**g_list;
+	size_t		i;
 
+	i = 0;
 	if ((new = (t_graph *)malloc(sizeof(t_graph))) == NULL)
 		return (NULL);
 	if ((g_list = (t_graph **)malloc(sizeof(t_graph *) * size)) == NULL)

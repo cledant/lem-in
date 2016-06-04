@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/06/04 17:16:46 by cledant          ###   ########.fr        #
+#    Updated: 2016/06/04 20:04:09 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ INCLUDES_LIBFT = ./libft/includes
 
 LIBFT_PATH = ./libft
 
-SRC_NAME =	main.c
+SRC_NAME =	main.c ft_ant_number.c ft_env_new.c ft_env_del.c ft_graph_new.c \
+			ft_graph_del.c ft_head_del.c ft_head_new.c ft_parser.c ft_part_nb.c
 
 SRC_PATH = ./srcs/
 
@@ -28,7 +29,7 @@ SRC =	$(addprefix $(SRC_PATH),$(SRC_NAME))
 
 OBJ =	$(SRC_NAME:.c=.o)
 
-NAME = push_swap
+NAME = lem_in
 
 all :	libft $(NAME)
 

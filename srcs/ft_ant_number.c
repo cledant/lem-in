@@ -6,13 +6,17 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 18:28:38 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/04 18:30:22 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/04 20:02:22 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-void	ft_ant_number(t_env *env, t_list *list)
+int		ft_ant_number(t_env *env, t_list *list)
 {
-	
+	if (ft_part_nb(list->content, ' ') != 1)
+		return (-1);
+	env->ants = ft_atoi(list->content);
+	return (1);
+	list = list->next;
 }

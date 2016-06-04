@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/04 18:26:04 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/04 19:59:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct		s_env
 
 void				ft_parser(t_env *env, t_list *list);
 int					ft_ant_number(t_env *env, t_list *list);
+size_t				ft_part_nb(char const *s, char c);
 t_env				*ft_env_new(void);
 void				ft_env_del(t_env **env);
 t_head				*ft_head_new(size_t size);

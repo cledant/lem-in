@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 17:03:15 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/04 17:31:04 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/04 19:54:37 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ t_head		*ft_head_new(size_t size)
 		new = NULL;
 		return (NULL);
 	}
-	new->x_coord = 0;
-	new->y_coord = 0;
 	new->max = size;
 	new->curr = 0;
 	new->list = g_list;
