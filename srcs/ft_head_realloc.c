@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parser.c                                        :+:      :+:    :+:   */
+/*   ft_head_realloc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 18:18:33 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 13:14:30 by cledant          ###   ########.fr       */
+/*   Created: 2016/06/05 12:53:06 by cledant           #+#    #+#             */
+/*   Updated: 2016/06/05 13:02:05 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-void	ft_parser(t_env *env, t_list *list)
+int		ft_head_realloc(t_head *head)
 {
-	t_list	*cpy_list;
+	t_graph		**new;
+	size_t		i;
 
-	cpy_list = list;
-	if (ft_ant_number(env, cpy_list) == -1)
-		ft_error(env, list);
-	if (ft_room_list(env, cpy_list) == -1)
-		ft_error(env, list);
-	if (ft_check_start_end(env) == -1)
-		ft_error(env, list);
-//	if (ft_room_connect(env, cpy_list) == -1)
-//		return ;
+	i = 0;
+	if ((new = (t_graph **)malloc(sizeof(t_graph *) * (head->max + H_SIZE)))
+			== NULL)
+		return (-1);
+	while (i < head->curr)
+	{
+		new[i] = head->list[i];
+		i++;
+	}
+	free(head->list);
+	head->list = new;
+	return (0);
 }
