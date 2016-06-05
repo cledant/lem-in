@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 12:31:28 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 12:52:40 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/05 16:36:40 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static int		ft_add_to_head(t_env *env, t_graph *new)
 	while (i < e_head->curr)
 		i++;
 	e_head->list[i] = new;
+	e_head->curr++;
 	return (0);
 }
 
@@ -43,23 +44,23 @@ int				ft_create_new_room(t_env *env, char *room)
 
 	if ((split = ft_strsplit(room, ' ')) == NULL)
 		return (-1);
-	if ((room == ft_graph_new(G_SIZE)) == NULL)
+	if ((new = ft_graph_new(G_SIZE)) == NULL)
 	{
-		ft_clean(&room, &split);
+		ft_clean(&new, &split);
 		return (-1);
 	}
 	if ((new->name = ft_strdup(split[0])) == NULL)
 	{	
-		ft_clean(&room, &split);
+		ft_clean(&new, &split);
 		return (-1);
 	}
-	x_coord = ft_atoi(split[1]);
-	y_coord = ft_atoi(split[2]);
+	new->x_coord = ft_atoi(split[1]);
+	new->y_coord = ft_atoi(split[2]);
 	if (ft_add_to_head(env, new) == -1)
 	{
-		ft_clean(&room, &split);
+		ft_clean(&new, &split);
 		return (-1);
 	}
-	ft_strdel_char2(split);
+	ft_strdel_char2(&split);
 	return (0);
 }

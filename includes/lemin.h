@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 15:26:19 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/05 16:33:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 
 # define H_SIZE 1024
-# define G_LIST 16
+# define G_SIZE 16
 
 typedef struct		s_graph
 {
@@ -46,7 +46,7 @@ typedef struct		s_env
 void				ft_parser(t_env *env, t_list *list);
 void				ft_error(t_env *env, t_list *list);
 int					ft_ant_number(t_env *env, t_list **list);
-int					ft_room_list(t_env *env, t_list *list);
+int					ft_room_list(t_env *env, t_list **list);
 int					ft_create_new_room(t_env *env, char *room);
 int					ft_command(t_env *env, t_list **list);
 int					ft_check_room_parsing(t_env *env);
@@ -59,5 +59,6 @@ int					ft_head_realloc(t_head *head);
 t_graph				*ft_graph_new(size_t size);
 void				ft_graph_del(t_graph **graph);
 void				ft_graph_realloc(t_graph **graph, size_t size);
+void				ft_debug_room(t_env *env);
 
 #endif

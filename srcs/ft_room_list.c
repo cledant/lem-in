@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 11:07:40 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 14:42:28 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/05 17:58:16 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@ int				ft_room_list(t_env *env, t_list **list)
 {
 	while (*list != NULL)
 	{
-		if (ft_part_nb((*list)->content, ' ') == 3)
-		{
-			if (ft_create_new_room(env, (*list)->content) == -1)
-				return (-1);
-		}
-		else if (ft_strncmp((*list)->content, "#", 1) == 0)
+//		ft_putendl((*list)->content);
+		if (ft_strncmp((*list)->content, "#", 1) == 0)
 		{
 			if (ft_strncmp((*list)->content, "##", 2) == 0)
 			{
@@ -29,9 +25,14 @@ int				ft_room_list(t_env *env, t_list **list)
 					return (-1);
 			}
 		}
+		else if (ft_part_nb((*list)->content, ' ') == 3)
+		{
+			if (ft_create_new_room(env, (*list)->content) == -1)
+				return (-1);
+		}
 		else
 			return (0);
 		*list = (*list)->next;
 	}
-	return (-1)
+	return (-1);
 }

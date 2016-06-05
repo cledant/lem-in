@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/06/05 15:25:17 by cledant          ###   ########.fr        #
+#    Updated: 2016/06/05 16:21:56 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIBFT_PATH = ./libft
 
 SRC_NAME =	main.c ft_ant_number.c ft_env_new.c ft_env_del.c ft_graph_new.c \
 			ft_graph_del.c ft_head_del.c ft_head_new.c ft_parser.c ft_part_nb.c \
-			ft_room_list.c ft_create_room.c ft_head_realloc.c ft_command.c
+			ft_room_list.c ft_create_new_room.c ft_head_realloc.c ft_command.c \
+			ft_check_room_parsing.c
 
 SRC_PATH = ./srcs/
 
