@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ant_number.c                                    :+:      :+:    :+:   */
+/*   ft_check_room_parsing.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 18:28:38 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 14:40:54 by cledant          ###   ########.fr       */
+/*   Created: 2016/06/05 15:30:43 by cledant           #+#    #+#             */
+/*   Updated: 2016/06/05 15:34:26 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-int		ft_ant_number(t_env *env, t_list **list)
+int		ft_check_room_parsing(t_env *env)
 {
-	if (ft_part_nb((*list)->content, ' ') != 1)
-		return (-1);
-	env->ants = ft_atoi((*list)->content);
-	return (1);
-	list = list->next;
+	size_t	i;
+
+	i = 0;
+
 }

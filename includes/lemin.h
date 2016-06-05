@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 13:14:27 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/05 15:26:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,11 @@ typedef struct		s_env
 
 void				ft_parser(t_env *env, t_list *list);
 void				ft_error(t_env *env, t_list *list);
-int					ft_ant_number(t_env *env, t_list *list);
+int					ft_ant_number(t_env *env, t_list **list);
 int					ft_room_list(t_env *env, t_list *list);
 int					ft_create_new_room(t_env *env, char *room);
+int					ft_command(t_env *env, t_list **list);
+int					ft_check_room_parsing(t_env *env);
 size_t				ft_part_nb(char const *s, char c);
 t_env				*ft_env_new(void);
 void				ft_env_del(t_env **env);

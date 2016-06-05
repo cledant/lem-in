@@ -6,30 +6,32 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 11:07:40 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 13:03:02 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/05 14:42:28 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-int				ft_room_list(t_env *env, t_list *list)
+int				ft_room_list(t_env *env, t_list **list)
 {
-	while (list != NULL)
+	while (*list != NULL)
 	{
-		if (ft_part_nb(list->content, ' ') == 3)
+		if (ft_part_nb((*list)->content, ' ') == 3)
 		{
-			if (ft_create_new_room(env, list->content) == -1)
+			if (ft_create_new_room(env, (*list)->content) == -1)
 				return (-1);
 		}
-		else if (ft_strncmp(list->content, "#", 1) == 0)
+		else if (ft_strncmp((*list)->content, "#", 1) == 0)
 		{
-			if (ft_strncmp(list->content, "##", 2) == 0)
+			if (ft_strncmp((*list)->content, "##", 2) == 0)
 			{
+				if (ft_command(env, list) == -1)
+					return (-1);
 			}
 		}
 		else
 			return (0);
-		list = list->next;
+		*list = (*list)->next;
 	}
 	return (-1)
 }
