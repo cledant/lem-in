@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 16:33:51 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/05 20:03:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LEMIN_H
 
 # include "libft.h"
+# include <stdio.h> //caca
 
 # define H_SIZE 1024
 # define G_SIZE 16
@@ -47,6 +48,9 @@ void				ft_parser(t_env *env, t_list *list);
 void				ft_error(t_env *env, t_list *list);
 int					ft_ant_number(t_env *env, t_list **list);
 int					ft_room_list(t_env *env, t_list **list);
+int					ft_room_connect(t_env *env, t_list **list, t_list *cpy_list);
+int					ft_room_link(t_env *env, char *link, t_list *cpy_list,
+						t_list *cur_lst);
 int					ft_create_new_room(t_env *env, char *room);
 int					ft_command(t_env *env, t_list **list);
 int					ft_check_room_parsing(t_env *env);
