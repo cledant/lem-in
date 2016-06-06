@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 12:53:06 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 13:02:05 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/06 09:04:12 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_head_realloc(t_head *head)
 		new[i] = head->list[i];
 		i++;
 	}
+	head->max = H_SIZE + head->max;
 	free(head->list);
 	head->list = new;
 	return (0);

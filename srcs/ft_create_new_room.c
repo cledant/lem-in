@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 12:31:28 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 16:36:40 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/06 09:03:54 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ static int		ft_add_to_head(t_env *env, t_graph *new)
 	if (e_head->curr == e_head->max)
 		if (ft_head_realloc(e_head) == -1)
 			return (-1);
-	while (i < e_head->curr)
-		i++;
-	e_head->list[i] = new;
+	e_head->list[e_head->curr] = new;
 	e_head->curr++;
 	return (0);
 }
