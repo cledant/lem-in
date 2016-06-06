@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 18:18:33 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 13:10:31 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/06 13:19:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	ft_parser(t_env *env, t_list *list)
 		ft_putendl("CHECK NEGATIF");
 		ft_error(env, list);
 	}
-	if (ft_room_connect(env, &cpy_list, cpy_list) == -1)
-		ft_error(env, list);
+	ft_room_connect(env, &cpy_list, cpy_list);
 	ft_putendl("DEBUG LINK");
 	ft_debug_link(env);
 	ft_putendl("FIN DEBUG LINK");

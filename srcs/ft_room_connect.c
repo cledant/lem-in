@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 19:28:58 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 12:59:53 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/06 13:17:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				ft_room_connect(t_env *env, t_list **list, t_list *cpy_list)
 			if (ft_strncmp((*list)->content, "##", 2) == 0)
 			{
 				if (ft_command(env, list) == -1)
-					return (-1);
+					return (0);
 			}
 		}
 		else if (ft_part_nb((*list)->content, ' ') == 1)
