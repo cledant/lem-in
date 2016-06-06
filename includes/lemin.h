@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 11:19:29 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/06 12:38:39 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LEMIN_H
 
 # include "libft.h"
-# include <stdio.h> //caca
 
 # define H_SIZE 2048
 # define G_SIZE 32
@@ -70,5 +69,6 @@ t_graph				*ft_graph_new(size_t size);
 void				ft_graph_del(t_graph **graph);
 int					ft_graph_realloc(t_graph *graph);
 void				ft_debug_room(t_env *env);
+void				ft_debug_link(t_env *env);
 
 #endif
