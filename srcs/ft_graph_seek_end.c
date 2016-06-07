@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 10:32:00 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/07 12:31:51 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/07 13:29:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,23 @@ void		ft_graph_seek_end(t_head *old, t_head *new, t_env *env)
 	{
 		while (j < old->list[i]->curr)
 		{
-			if (old->list[i]->next[j]->hist != NULL)
-				ft_strdel(&old->list[i]->next[j]->hist);
-			if ((old->list[i]->next[j]->hist =
-				ft_strjoin_cat(old->list[i]->hist,
-					old->list[i]->next[j]->name, ' ')) == NULL)
-				return ;
-			if (ft_strcmp(old->list[i]->next[j]->name, env->end) == 0)
+			if (old->list[i]->next[j]->hist == NULL)
 			{
-				env->path = old->list[i]->next[j]->hist;
-				return ;
-			}
-			if (new->curr == new->max)
-				if (ft_head_realloc(new) == -1)
+				if ((old->list[i]->next[j]->hist =
+							ft_strjoin_cat(old->list[i]->hist,
+								old->list[i]->next[j]->name, ' ')) == NULL)
 					return ;
-			new->list[new->curr] = old->list[i]->next[j];
-			new->curr++;
+				if (ft_strcmp(old->list[i]->next[j]->name, env->end) == 0)
+				{
+					env->path = old->list[i]->next[j]->hist;
+					return ;
+				}
+				if (new->curr == new->max)
+					if (ft_head_realloc(new) == -1)
+						return ;
+				new->list[new->curr] = old->list[i]->next[j];
+				new->curr++;
+			}
 			j++;
 		}
 		i++;
