@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/07 11:36:04 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/07 12:39:30 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int					ft_graph_realloc(t_graph *graph);
 t_graph				*ft_graph_seek_name(t_head *head, char *name);
 void				ft_graph_seek_end(t_head *old, t_head *new, t_env *env);
 void				ft_solver(t_env *env);
+void				ft_disp_path(t_env *env);
 char				*ft_strjoin_cat(const char *s1, const char *s2, char c);
 void				ft_debug_room(t_env *env);
 void				ft_debug_link(t_env *env);

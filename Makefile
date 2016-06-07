@@ -6,7 +6,7 @@
 #    By: cledant <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/26 10:40:13 by cledant           #+#    #+#              #
-#    Updated: 2016/06/06 11:26:34 by cledant          ###   ########.fr        #
+#    Updated: 2016/06/07 12:53:08 by cledant          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC_NAME =	main.c ft_ant_number.c ft_env_new.c ft_env_del.c ft_graph_new.c \
 			ft_room_list.c ft_create_new_room.c ft_head_realloc.c ft_command.c \
 			ft_check_room_parsing.c ft_room_connect.c ft_room_link.c \
 			ft_has_same.c ft_create_link.c ft_graph_realloc.c ft_seek_node.c \
-			ft_inv_split.c
+			ft_inv_split.c ft_solver.c ft_graph_seek_name.c ft_graph_seek_end.c \
+			ft_strjoin_cat.c ft_disp_path.c
 
 SRC_PATH = ./srcs/
 
