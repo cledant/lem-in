@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 12:11:17 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 12:44:37 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/07 10:49:34 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,13 @@ int				main(void)
 		ft_error(env, file);
 	ft_parser(env, file);
 	ft_putendl("PARSING DONE");
+	ft_putendl("SOLVER");
+	ft_solver(env);
+	ft_putendl("DONE SOLVER");
+	if (env->path != NULL)
+		ft_putendl(env->path);
+	else
+		ft_putendl("NO SOLUTION FOUND");
 	ft_env_del(&env);
 	ft_lstdel(&file, ft_lstfree_malloc);
 	return (0);

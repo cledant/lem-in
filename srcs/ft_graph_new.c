@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 17:22:09 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/04 19:53:27 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/07 09:52:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_graph		*ft_graph_new(size_t size)
 		return (NULL);
 	}
 	new->name = NULL;
+	new->hist = NULL;
 	new->x_coord = 0;
 	new->y_coord = 0;
 	new->max = size;

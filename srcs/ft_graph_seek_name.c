@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_graph_del.c                                     :+:      :+:    :+:   */
+/*   ft_graph_seek_name.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 16:16:40 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/07 09:52:46 by cledant          ###   ########.fr       */
+/*   Created: 2016/06/07 10:20:52 by cledant           #+#    #+#             */
+/*   Updated: 2016/06/07 10:31:41 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-void		ft_graph_del(t_graph **graph)
+t_graph		*ft_graph_seek_name(t_head *head, char *name)
 {
 	size_t	i;
 
 	i = 0;
-	if ((*graph)->name != NULL)
-		ft_strdel(&((*graph)->name));
-	if ((*graph)->hist != NULL)
-		ft_strdel(&((*graph)->hist));
-	free((*graph)->next);
-	(*graph)->next = NULL;
-	free(*graph);
-	*graph = NULL;
+	while (i < head->curr)
+	{
+		if (ft_strcmp(head->list[i]->name, name) == 0)
+			return (head->list[i]);
+		i++;
+	}
+	return (NULL);
 }

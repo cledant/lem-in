@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 12:38:39 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/07 11:36:04 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 # define H_SIZE 2048
 # define G_SIZE 32
+# define SEEK_SIZE 10000
 
 typedef struct		s_graph
 {
 	char			*name;
+	char			*hist;
 	int				x_coord;
 	int				y_coord;
 	size_t			max;
@@ -41,6 +43,7 @@ typedef struct		s_env
 	char			*start;
 	char			*end;
 	size_t			ants;
+	char			*path;
 }					t_env;
 
 void				ft_parser(t_env *env, t_list *list);
@@ -68,6 +71,10 @@ int					ft_head_realloc(t_head *head);
 t_graph				*ft_graph_new(size_t size);
 void				ft_graph_del(t_graph **graph);
 int					ft_graph_realloc(t_graph *graph);
+t_graph				*ft_graph_seek_name(t_head *head, char *name);
+void				ft_graph_seek_end(t_head *old, t_head *new, t_env *env);
+void				ft_solver(t_env *env);
+char				*ft_strjoin_cat(const char *s1, const char *s2, char c);
 void				ft_debug_room(t_env *env);
 void				ft_debug_link(t_env *env);
 
