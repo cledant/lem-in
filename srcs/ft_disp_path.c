@@ -15,30 +15,39 @@
 void	ft_disp_path(t_env *env)
 {
 	char		**split;
-	long int	*tab;
+	size_t		size;
 	size_t		i;
 	size_t		j;
-	size_t		one;
-	size_t		size;
+	size_t		first;
 
-	i = 0;
+	i = 1;
+	j = 0;
+	first = 1;
 	size = ft_part_nb(env->path, ' ');
 	if ((split = ft_strsplit(env->path, ' ')) == NULL)
 		return ;
-	if ((tab = (long int *)malloc(sizeof(long int) * size)) == NULL)
+	while (first < env->ants)
 	{
-		ft_clean(split, tab);
-		return ;
+		j = first;
+		while (i < size)
+		{
+			//if (j - i > 0 && j <= env->ants)
+			{
+				ft_putchar('L');
+				ft_putnbr(j);
+				ft_putchar('-');
+				ft_putstr(split[i]);
+			}
+			i++;
+			if (i == size)
+				ft_putchar('\n');
+			else
+				ft_putchar(' ');
+			j++;
+		}
+		j = 1;
+		i = 1;
+		first++;
 	}
-	while (i < size)
-	{
-		tab[i][0] = 1 - i;
-		tab[i][1] = 0;
-		i++;
-	}
-	i = 0;
-	while (i < size)
-	{
-		
-	}
+	ft_strdel_char2(&split);
 }
