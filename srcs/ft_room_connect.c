@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 19:28:58 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 13:17:47 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 18:43:00 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ int				ft_room_connect(t_env *env, t_list **list, t_list *cpy_list)
 		else if (ft_part_nb((*list)->content, ' ') == 1)
 		{
 			if (ft_room_link(env, (*list)->content, cpy_list, *list) == -1)
+			{
+				ft_putendl("FAIL AT");
+				ft_putendl((*list)->content);
+				ft_putendl("END FAIL AT");
 				return (0);
+			}
 		}
 		else
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 12:11:17 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/09 16:31:59 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 17:47:38 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,23 +84,22 @@ int				main(void)
 	if ((file = ft_lstread_file(0)) == NULL)
 		ft_error(env, file);
 	ft_parser(env, file);
-//	ft_putendl("PARSING DONE");
-//	ft_putendl("SOLVER");
+	ft_putendl("PARSING DONE");
+	ft_putendl("SOLVER");
 	ft_solver(env);
-//	ft_putendl("DONE SOLVER");
-//	if (env->path != NULL)
-//		ft_putendl(env->path);
-//	else
+	ft_putendl("DONE SOLVER");
+	if (env->path != NULL)
+		ft_putendl(env->path);
 	if (env->path == NULL)
 	{
-//		ft_putendl("NO SOLUTION FOUND");
+		ft_putendl("NO SOLUTION FOUND");
 		ft_env_del(&env);
 		ft_lstdel(&file, ft_lstfree_malloc);
 		return (0);
 	}
-//	ft_putendl("DISPLAY SOLUTION");
+	ft_putendl("DISPLAY SOLUTION");
 	ft_disp_path(env);
-//	ft_putendl("END DISPLAY SOLUTION");
+	ft_putendl("END DISPLAY SOLUTION");
 	ft_env_del(&env);
 	ft_lstdel(&file, ft_lstfree_malloc);
 	return (0);
