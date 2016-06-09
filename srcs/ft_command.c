@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 14:34:02 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 18:57:15 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 16:55:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static inline int		ft_known_command(char *command)
 {
-	if (strcmp(command, "##start") == 0)
+	if (ft_strcmp(command, "##start") == 0)
 		return (1);
-	else if (strcmp(command, "##end") == 0)
+	else if (ft_strcmp(command, "##end") == 0)
 		return (1);
 	else
 		return (0);
