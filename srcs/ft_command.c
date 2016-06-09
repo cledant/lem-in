@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 14:34:02 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/09 16:55:31 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 21:35:09 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,27 @@ static inline int		ft_known_command(char *command)
 		return (0);
 }
 
+static inline int		ft_check_n_split(char ***split, t_list **list,
+							char **cpy_in)
+{
+	if (ft_part_nb((*list)->content, ' ') != 3)
+		return (-1);
+	if ((*split = ft_strsplit((*list)->content, ' ')) == NULL)
+		return (-1);
+	if ((*cpy_in = ft_strdup((*split)[0])) == NULL)
+	{
+		ft_strdel_char2(split);
+		return (-1);
+	}
+	return (0);
+}
+
 static inline int		ft_add_command(t_env *env, t_list **list,
 							char **cpy_in)
 {
 	char	**split;
 
+	split = NULL;
 	while (1)
 	{
 		if ((*list = (*list)->next) == NULL)
@@ -40,15 +56,8 @@ static inline int		ft_add_command(t_env *env, t_list **list,
 					ft_part_nb((*list)->content, ' ') == 3)
 			break ;
 	}
-	if (ft_part_nb((*list)->content, ' ') != 3)
+	if (ft_check_n_split(&split, list, cpy_in) == -1)
 		return (-1);
-	if ((split = ft_strsplit((*list)->content, ' ')) == NULL)
-		return (-1);
-	if ((*cpy_in = ft_strdup(split[0])) == NULL)
-	{
-		ft_strdel_char2(&split);
-		return (-1);
-	}
 	ft_strdel_char2(&split);
 	if (ft_create_new_room(env, (*list)->content) == -1)
 		return (-1);

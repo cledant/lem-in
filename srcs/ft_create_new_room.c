@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 12:31:28 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 09:03:54 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 21:16:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				ft_create_new_room(t_env *env, char *room)
 		return (-1);
 	}
 	if ((new->name = ft_strdup(split[0])) == NULL)
-	{	
+	{
 		ft_clean(&new, &split);
 		return (-1);
 	}

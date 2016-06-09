@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 15:30:43 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 09:09:56 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 21:15:58 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ static int		ft_list_check(t_head *e_head, size_t iter)
 
 	i = iter;
 	to_check = e_head->list[i];
-	if (ft_strncmp(to_check->name, "L", 1) == 0 || 
+	if (ft_strncmp(to_check->name, "L", 1) == 0 ||
 			ft_strncmp(to_check->name, "#", 1) == 0)
 		return (-1);
 	i++;
 	while (i < e_head->curr)
 	{
-		if (to_check->x_coord == e_head->list[i]->x_coord && 
+		if (to_check->x_coord == e_head->list[i]->x_coord &&
 				to_check->y_coord == e_head->list[i]->y_coord)
 			return (-1);
 		if (ft_strcmp(to_check->name, e_head->list[i]->name) == 0)

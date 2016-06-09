@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 17:22:09 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/07 09:52:09 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 21:21:40 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ t_graph		*ft_graph_new(size_t size)
 	new->max = size;
 	new->curr = 0;
 	new->next = g_list;
-	while (i < new->max)
-	{
-		new->next[i] = NULL;
-		i++;
-	}
+	ft_bzero(new->next, sizeof(t_graph *) * size);
 	return (new);
 }

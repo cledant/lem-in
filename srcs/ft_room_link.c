@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 19:54:24 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/06 13:10:19 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 22:34:23 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ static void		ft_clean(char ***split, char **inv)
 		ft_strdel(inv);
 }
 
+static int		ft_init(char *link, char ***split, char **inv)
+{
+	if (ft_part_nb(link, '-') != 2)
+		return (-1);
+	if ((*split = ft_strsplit(link, '-')) == NULL)
+		return (-1);
+	if (ft_strcmp((*split)[0], (*split)[1]) == 0)
+	{
+		ft_clean(split, inv);
+		return (-1);
+	}
+	return (0);
+}
+
 int				ft_room_link(t_env *env, char *link, t_list *cpy_list,
 					t_list *cur_lst)
 {
@@ -27,15 +41,9 @@ int				ft_room_link(t_env *env, char *link, t_list *cpy_list,
 	char	*inv;
 
 	inv = NULL;
-	if (ft_part_nb(link, '-') != 2)
+	split = NULL;
+	if (ft_init(link, &split, &inv) == -1)
 		return (-1);
-	if ((split = ft_strsplit(link, '-')) == NULL)
-		return (-1);
-	if (ft_strcmp(split[0], split[1]) == 0)
-	{
-		ft_clean(&split, &inv);
-		return (-1);
-	}
 	if ((inv = ft_inv_split(split[0], split[1])) == NULL)
 	{
 		ft_clean(&split, &inv);

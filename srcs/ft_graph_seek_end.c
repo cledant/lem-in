@@ -6,44 +6,48 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 10:32:00 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/07 13:29:47 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/09 22:48:49 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-void		ft_graph_seek_end(t_head *old, t_head *new, t_env *env)
+static inline int	ft_step(t_head *old, t_head *new, t_env *env, size_t val[2])
 {
-	size_t		i;
-	size_t		j;
-
-	i = 0;
-	j = 0;
-	while (i < old->curr)
+	if ((old->list[val[0]]->next[val[1]]->hist =
+			ft_strjoin_cat(old->list[val[0]]->hist,
+				old->list[val[0]]->next[val[1]]->name, ' ')) == NULL)
+		return (-1);
+	if (ft_strcmp(old->list[val[0]]->next[val[1]]->name, env->end) == 0)
 	{
-		while (j < old->list[i]->curr)
+		env->path = old->list[val[0]]->next[val[1]]->hist;
+		return (-1);
+	}
+	if (new->curr == new->max)
+		if (ft_head_realloc(new) == -1)
+			return (-1);
+	new->list[new->curr] = old->list[val[0]]->next[val[1]];
+	new->curr++;
+	return (0);
+}
+
+void				ft_graph_seek_end(t_head *old, t_head *new, t_env *env)
+{
+	size_t		val[2];
+
+	val[0] = 0;
+	val[1] = 0;
+	while (val[0] < old->curr)
+	{
+		while (val[1] < old->list[val[0]]->curr)
 		{
-			if (old->list[i]->next[j]->hist == NULL)
-			{
-				if ((old->list[i]->next[j]->hist =
-							ft_strjoin_cat(old->list[i]->hist,
-								old->list[i]->next[j]->name, ' ')) == NULL)
+			if (old->list[val[0]]->next[val[1]]->hist == NULL)
+				if (ft_step(old, new, env, val) == -1)
 					return ;
-				if (ft_strcmp(old->list[i]->next[j]->name, env->end) == 0)
-				{
-					env->path = old->list[i]->next[j]->hist;
-					return ;
-				}
-				if (new->curr == new->max)
-					if (ft_head_realloc(new) == -1)
-						return ;
-				new->list[new->curr] = old->list[i]->next[j];
-				new->curr++;
-			}
-			j++;
+			val[1]++;
 		}
-		i++;
-		j = 0;
+		val[0]++;
+		val[1] = 0;
 	}
 	if (new->curr == 0)
 		return ;
