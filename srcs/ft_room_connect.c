@@ -6,11 +6,18 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 19:28:58 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/09 18:43:00 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/14 13:56:43 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
+
+static void		ft_debug(char *where)
+{
+	ft_putendl("FAIL AT");
+	ft_putendl(where);
+	ft_putendl("END FAIL AT");
+}
 
 int				ft_room_connect(t_env *env, t_list **list, t_list *cpy_list)
 {
@@ -28,9 +35,8 @@ int				ft_room_connect(t_env *env, t_list **list, t_list *cpy_list)
 		{
 			if (ft_room_link(env, (*list)->content, cpy_list, *list) == -1)
 			{
-				ft_putendl("FAIL AT");
-				ft_putendl((*list)->content);
-				ft_putendl("END FAIL AT");
+				if (env->debug == 1)
+					ft_debug((*list)->content);
 				return (0);
 			}
 		}

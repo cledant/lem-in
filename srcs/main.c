@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 12:11:17 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/14 13:08:17 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/14 13:43:42 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void			main_2(t_env **env, t_list **file)
 {
+	if ((*env)->debug == 1)
+		ft_putendl("DONE SOLVER");
 	if ((*env)->path != NULL && (*env)->debug == 1)
 		ft_putendl((*env)->path);
 	if ((*env)->path == NULL)
@@ -49,14 +51,14 @@ int				main(int argc, char **argv)
 		ft_error(env, file);
 	if ((file = ft_lstread_file(0)) == NULL)
 		ft_error(env, file);
+	if (env->debug == 1)
+		ft_putendl("PARSING");
 	ft_parser(env, file);
 	if (env->debug == 1)
 		ft_putendl("PARSING DONE");
 	if (env->debug == 1)
 		ft_putendl("SOLVER");
 	ft_solver(env);
-	if (env->debug == 1)
-		ft_putendl("DONE SOLVER");
 	main_2(&env, &file);
 	return (0);
 }
