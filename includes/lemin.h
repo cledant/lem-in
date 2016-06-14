@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/07 12:39:30 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/14 12:25:19 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_env
 	char			*end;
 	size_t			ants;
 	char			*path;
+	size_t			debug;
 }					t_env;
 
 void				ft_parser(t_env *env, t_list *list);

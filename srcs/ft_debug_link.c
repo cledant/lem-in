@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env_new.c                                       :+:      :+:    :+:   */
+/*   ft_debug_link.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 15:26:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/14 12:26:11 by cledant          ###   ########.fr       */
+/*   Created: 2016/06/14 12:43:33 by cledant           #+#    #+#             */
+/*   Updated: 2016/06/14 12:43:37 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-t_env		*ft_env_new(void)
+void			ft_debug_link(t_env *env)
 {
-	t_env	*new;
+	size_t	i;
+	size_t	j;
+	t_head	*cpy;
 
-	if ((new = (t_env *)malloc(sizeof(t_env))) == NULL)
-		return (NULL);
-	if ((new->head = ft_head_new(H_SIZE)) == NULL)
+	cpy = env->head;
+	i = 0;
+	j = 0;
+	while (i < cpy->curr)
 	{
-		free(new);
-		new = NULL;
-		return (NULL);
+		ft_putendl(cpy->list[i]->name);
+		while (j < cpy->list[i]->curr)
+		{
+			ft_putstr("LINK TO : ");
+			ft_putendl(cpy->list[i]->next[j]->name);
+			j++;
+		}
+		j = 0;
+		i++;
 	}
-	new->path = NULL;
-	new->start = NULL;
-	new->end = NULL;
-	new->ants = 0;
-	new->debug = 0;
-	return (new);
 }
