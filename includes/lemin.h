@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/14 12:25:19 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/16 17:19:10 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct		s_env
 	char			*end;
 	size_t			ants;
 	char			*path;
-	size_t			debug;
 }					t_env;
 
 void				ft_parser(t_env *env, t_list *list);
@@ -79,5 +78,6 @@ void				ft_disp_path(t_env *env);
 char				*ft_strjoin_cat(const char *s1, const char *s2, char c);
 void				ft_debug_room(t_env *env);
 void				ft_debug_link(t_env *env);
+void				ft_read_inputs(t_list *list);
 
 #endif

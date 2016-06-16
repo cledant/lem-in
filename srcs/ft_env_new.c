@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:26:27 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/14 12:26:11 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/16 18:12:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ t_env		*ft_env_new(void)
 	new->start = NULL;
 	new->end = NULL;
 	new->ants = 0;
-	new->debug = 0;
 	return (new);
 }

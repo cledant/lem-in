@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_read_inputs.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/14 12:40:55 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/14 20:01:27 by cledant          ###   ########.fr       */
+/*   Created: 2016/06/14 20:20:04 by cledant           #+#    #+#             */
+/*   Updated: 2016/06/14 20:47:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-void			ft_error(t_env *env, t_list *list)
+void	ft_read_inputs(t_list *list)
 {
-	if (env != NULL)
-		ft_env_del(&env);
-	if (list != NULL)
+	t_list	*cpy_list;
+
+	cpy_list = list;
+	if (cpy_list == NULL)
+		return ;
+	while (cpy_list != NULL)
 	{
-		ft_read_inputs(list);
-		ft_lstdel(&list, ft_lstfree_malloc);
+		ft_putendl(cpy_list->content);
+		cpy_list = cpy_list->next;
 	}
-	ft_putendl("ERROR");
-	exit(-1);
+	ft_putendl("");
 }
