@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 12:11:17 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/17 11:49:50 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 14:53:51 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int				main(int argc, char **argv)
 		ft_error(env, file);
 	if ((file = ft_lstread_file(0)) == NULL)
 		ft_error(env, file);
+	ft_init_lst(file);
 	ft_parser(env, file);
 	ft_solver(env);
 	if (env->path == NULL)

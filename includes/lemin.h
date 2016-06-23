@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/16 17:19:10 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 15:27:08 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 
 # define H_SIZE 2048
-# define G_SIZE 32
+# define G_SIZE 1024
 # define SEEK_SIZE 10000
 
 typedef struct		s_graph
@@ -79,5 +79,6 @@ char				*ft_strjoin_cat(const char *s1, const char *s2, char c);
 void				ft_debug_room(t_env *env);
 void				ft_debug_link(t_env *env);
 void				ft_read_inputs(t_list *list);
+void				ft_init_lst(t_list *lst);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 15:30:43 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/09 21:15:58 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 15:17:49 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-static int		ft_list_check(t_head *e_head, size_t iter)
+static inline int	ft_list_check(t_head *e_head, size_t iter)
 {
 	size_t		i;
 	t_graph		*to_check;
@@ -35,7 +35,7 @@ static int		ft_list_check(t_head *e_head, size_t iter)
 	return (0);
 }
 
-int				ft_check_room_parsing(t_env *env)
+int					ft_check_room_parsing(t_env *env)
 {
 	size_t		i;
 	t_head		*e_head;

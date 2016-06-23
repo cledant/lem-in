@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 18:28:38 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/05 18:37:52 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 13:16:25 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ int		ft_ant_number(t_env *env, t_list **list)
 		else if (ft_part_nb((*list)->content, ' ') == 1)
 		{
 			env->ants = ft_atoi((*list)->content);
+			if (env->ants > 0)
+				(*list)->content_size = 1;
 			*list = (*list)->next;
 			return (0);
 		}
 		else
 			return (-1);
+		(*list)->content_size = 1;
 		*list = (*list)->next;
 	}
 	return (-1);
