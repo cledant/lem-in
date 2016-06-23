@@ -6,16 +6,16 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 12:46:29 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/09 22:15:27 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 15:52:31 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
 
-static void		ft_roll_value(size_t *tab, size_t size, size_t *j)
+static void		ft_roll_value(int *tab, size_t size, size_t *j)
 {
 	size_t		i;
-	size_t		tab_2[size];
+	int			tab_2[size];
 
 	(*j)++;
 	i = 0;
@@ -36,7 +36,7 @@ static void		ft_roll_value(size_t *tab, size_t size, size_t *j)
 	tab[1] = *j;
 }
 
-static void		ft_show_val(size_t *tab, size_t (*val)[5], char **split,
+static void		ft_show_val(int *tab, size_t (*val)[5], char **split,
 					size_t size)
 {
 	if ((*val)[1] != size - 1 && (*val)[0] != 0)
@@ -48,7 +48,7 @@ static void		ft_show_val(size_t *tab, size_t (*val)[5], char **split,
 	(*val)[0]++;
 }
 
-static int		ft_val_init(size_t (*val)[5], size_t **tab, char ***split,
+static int		ft_val_init(size_t (*val)[5], int **tab, char ***split,
 					t_env *env)
 {
 	(*val)[2] = 0;
@@ -57,7 +57,7 @@ static int		ft_val_init(size_t (*val)[5], size_t **tab, char ***split,
 	(*val)[1] = (*val)[4] - 1;
 	if ((*split = ft_strsplit(env->path, ' ')) == NULL)
 		return (-1);
-	if ((*tab = (size_t *)malloc(sizeof(size_t) * (*val)[4])) == NULL)
+	if ((*tab = (int *)malloc(sizeof(int) * (*val)[4])) == NULL)
 	{
 		ft_strdel_char2(split);
 		return (-1);
@@ -70,7 +70,7 @@ void			ft_disp_path(t_env *env)
 {
 	char		**split;
 	size_t		val[5];
-	size_t		*tab;
+	int			*tab;
 
 	if (ft_val_init(&val, &tab, &split, env) == -1)
 		return ;

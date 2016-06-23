@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 15:30:43 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/23 15:17:49 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 23:38:32 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,6 @@ int					ft_check_room_parsing(t_env *env)
 
 	i = 0;
 	e_head = env->head;
-	if (env->start == NULL)
-		return (-1);
-	if (env->end == NULL)
-		return (-1);
 	while (i < e_head->curr)
 	{
 		if (ft_list_check(e_head, i) == -1)

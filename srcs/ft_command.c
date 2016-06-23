@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 14:34:02 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/23 14:21:12 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/23 23:09:47 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,18 @@ static inline int		ft_check_n_split(char ***split, t_list **list,
 	return (0);
 }
 
+static inline int		ft_add_part_2(char ***split, t_list **list,
+							char **cpy_in, t_env *env)
+{
+	if (ft_check_n_split(split, list, cpy_in) == -1)
+		return (-1);
+	ft_strdel_char2(split);
+	if (ft_create_new_room(env, (*list)->content) == -1)
+		return (-1);
+	(*list)->content_size = 1;
+	return (0);
+}
+
 static inline int		ft_add_command(t_env *env, t_list **list,
 							char **cpy_in)
 {
@@ -57,14 +69,10 @@ static inline int		ft_add_command(t_env *env, t_list **list,
 		else if (ft_strncmp((*list)->content, "#", 1) != 0 &&
 					ft_part_nb((*list)->content, ' ') == 3)
 			break ;
+		else
+			return (-1);
 	}
-	if (ft_check_n_split(&split, list, cpy_in) == -1)
-		return (-1);
-	ft_strdel_char2(&split);
-	if (ft_create_new_room(env, (*list)->content) == -1)
-		return (-1);
-	(*list)->content_size = 1;
-	return (0);
+	return (ft_add_part_2(&split, list, cpy_in, env));
 }
 
 int						ft_command(t_env *env, t_list **list)
