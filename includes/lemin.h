@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 15:41:46 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/23 15:49:38 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/24 18:00:20 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void				ft_debug_room(t_env *env);
 void				ft_debug_link(t_env *env);
 void				ft_read_inputs(t_list *list);
 void				ft_init_lst(t_list *lst);
+t_list				*ft_lstread_prompt(int fd);
 
 #endif
