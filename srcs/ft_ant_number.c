@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 18:28:38 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/23 13:16:25 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/24 12:19:17 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int		ft_ant_number(t_env *env, t_list **list)
 		{
 			if (ft_strncmp((*list)->content, "##", 2) == 0)
 			{
+				if (ft_strcmp((*list)->content, "##start") == 0 ||
+						ft_strcmp((*list)->content, "##end") == 0)
+					return (-1);
 				if (ft_command(env, list) == -1)
 					return (-1);
 			}

@@ -6,7 +6,7 @@
 /*   By: cledant <cledant@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 12:46:29 by cledant           #+#    #+#             */
-/*   Updated: 2016/06/23 15:52:31 by cledant          ###   ########.fr       */
+/*   Updated: 2016/06/24 11:54:06 by cledant          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int		ft_val_init(size_t (*val)[5], int **tab, char ***split,
 		ft_strdel_char2(split);
 		return (-1);
 	}
-	ft_bzero(*tab, sizeof(size_t) * (*val)[4]);
+	ft_bzero(*tab, sizeof(int) * (*val)[4]);
 	return (0);
 }
 
