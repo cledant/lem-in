@@ -1,43 +1,26 @@
-##nopnop
-#com
 2
 ##start
-#coucou
-##coucou
 start 0 1
-#coucou
-#start
-#5
-#nop
-blabla 150 150
-aaa 15 15 
 ##end
 end 1 0
 0 0 0
 1 1 1
 2 2 2
-nop 3 1
-#end
 3 3 3
 4 4 4
-test 0 10
 5 5 5
 6 6 6
-#coucou
 7 7 7
 8 8 8
 9 9 9
 0-8
 0-5
-#1-0
 0-1
 1-4
 2-9
-#test-test
 3-9
 4-3
 5-6
-#test
 5-7
 5-4
 6-1
